@@ -4,13 +4,13 @@
 const username = document.querySelector("#username")
 const password = document.querySelector("#password")
 
-// if(username == "admin" && password == "admin123"){
-//     alert("success")
-//     window.location.href = "app.html"
-// }else{
-//     alert ("please register")
-// }
-// }
+document.querySelector("#signup").addEventListener("click",(e)=>{
+    window.location = "register.html"
+})
+
+
+
+
 
 //code handling registration
 
@@ -21,15 +21,18 @@ const firstName = document.querySelector(".first")
 const lastName = document.querySelector(".last")
 const passWord = document.querySelector("#password")
 
+
 register.addEventListener('click',(e)=>{
+   
 let client = {
     firstname:firstName.value,
     lastname:lastName.value,
     password:passWord.value
 }
 clients.push(client)
-
-localStorage.setItem("client",JSON.stringify(clients))
+if (localStorage.getItem("client") == null){
+    localStorage.setItem("client",JSON.stringify(clients))    
+}
 e.preventDefault()
 }
 )
@@ -40,12 +43,13 @@ enter.addEventListener("click",(e)=>{
     let getData = localStorage.getItem ("client")
     let newGetData = JSON.parse(getData)
 
+
     newGetData.map( element =>{
         if(element.lastname == username.value){
-          alert("saved")
+          alert("awesome")
           window.location = "app.html"
         }else{
-            alert('return')
+            alert("please register")
         }
     })
 

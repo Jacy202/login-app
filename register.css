@@ -1,0 +1,10 @@
+button{
+    font-weight: bolder
+}
+.container{
+    background-color: peru;
+}
+.main{
+    border: 3px bold;
+    padding: 50px 100px;
+}
